@@ -4,6 +4,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 
 data_ = {
     "skin_type": [
@@ -46,3 +47,4 @@ model_training.fit(X_train,y_train)
 
 y_pred = model_training.predict(X_test)
 print(y_pred)
+print("\nAccuracy:", accuracy_score(y_test, y_pred))
