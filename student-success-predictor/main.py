@@ -2,18 +2,18 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder,LabelEncoder,StandardScaler
+from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score,roc_auc_score, roc_curve,auc, mean_absolute_error, mean_squared_error,confusion_matrix,classification_report
+from sklearn.metrics import accuracy_score,roc_auc_score, roc_curve,confusion_matrix,classification_report
 import matplotlib.pyplot as plt
 
 data = pd.DataFrame({
-    'study_hours': [5, 3, 8, np.nan, 4, 6, 7, 2, 10, 1],
-    'sleep_hours': [7, 6, 5, 8, np.nan, 7, 6, 5, 4, 6],
-    'attendance': ['High', 'Low', 'High', 'Medium', 'Medium', 'High', 'High', 'Low', 'High', 'Low'],
-    'passed': [1, 0, 1, 1, 0, 1, 1, 0, 1, 0]
+    'study_hours': [np.nan, 7, 8, 10, 7, 9, 10, 3, 1, 4, 4, 10, 11, 1, 6, 10, 2, 9, 2, 6, 9, 4, 4, 4, 8, np.nan, 11, 5, 6, 6, 7, 7, 6, np.nan, 9, np.nan, 8, 7, 4, 11],
+    'sleep_hours': [6, 5, 8, np.nan, 8, 7, 4, 4, 6, 4, 4, 6, 8, 6, 8, 8, 8, 7, 6, np.nan, 5, 6, 5, 5, 8, 4, 4, 4, 8, np.nan, 8, 5, 7, 5, 6, 4, 7, 8, 7, 4],
+    'attendance': ['High', 'Low', 'Medium', 'Low', 'Medium', 'Low', 'High', 'Medium', 'Medium', 'Low', 'High', 'Medium', 'High', 'High', 'High', 'High', 'Low', 'High', 'Low', 'Medium', 'Medium', 'Medium', 'Medium', 'High', 'Medium', 'High', 'Medium', 'High', 'Low', 'High', 'Medium', 'High', 'Low', 'Medium', 'High', 'Low', 'Low', 'Low', 'Medium', 'High'],
+    'passed': [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1]
 })
 
 X = data.drop("passed", axis=1)
