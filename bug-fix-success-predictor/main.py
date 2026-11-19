@@ -3,6 +3,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 
 data_ = {
     "lines_of_code": [100, 250, 300, 150, 400, 500, 120, 80, 700, 320, 180, 600, 290, 270, 360, 420, 510, 130, 50, 100],
@@ -24,3 +25,4 @@ model_training.fit(X_train,y_train)
 y_pred = model_training.predict(X_test)
 
 print(y_pred)
+print("\nAccuracy:", accuracy_score(y_test, y_pred))
